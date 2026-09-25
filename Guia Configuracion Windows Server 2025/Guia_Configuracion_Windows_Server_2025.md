@@ -10,7 +10,205 @@
 
 ------------------------------------------------------------------------
 
-## 1. Antes de empezar
+# 1. Conocer el Administrador del servidor
+
+Después de iniciar sesión en Windows Server 2025 con una cuenta
+administrativa, normalmente se abre automáticamente el **Administrador
+del servidor (Server Manager)**. Es la consola principal desde la que
+vamos a administrar el servidor y acceder a muchas de sus herramientas.
+
+Microsoft indica que Server Manager permite administrar el servidor local
+y también otros servidores Windows que se hayan añadido a la consola.
+Desde aquí podemos consultar el estado del servidor, instalar o quitar
+roles y características, acceder a herramientas administrativas y
+realizar tareas de configuración. citeturn0search0turn0search1
+
+📸 **CAPTURA 01 --- Ventana principal del Administrador del servidor**
+
+## 1.1. ¿Qué vemos al abrirlo?
+
+La ventana se puede entender en tres zonas principales:
+
+1. **Barra superior:** contiene los menús y controles generales.
+2. **Panel de navegación izquierdo:** permite cambiar entre las
+   diferentes vistas de administración.
+3. **Zona central:** muestra la información y las tareas disponibles
+   para la vista seleccionada.                                                                  
+
+------------------------------------------------------------------------
+
+## 1.2. Panel de navegación izquierdo
+
+En una instalación inicial encontraremos principalmente:
+
+### Panel
+
+Es la pantalla inicial del Administrador del servidor.
+
+Aquí se muestra una visión general del estado del servidor y se
+organizan diferentes bloques de información. Es la vista que utilizaremos
+para tener una primera visión de conjunto.
+
+### Servidor local
+
+Muestra información y propiedades del propio servidor que estamos
+administrando.
+
+Desde esta sección podremos comprobar o modificar, entre otros:
+
+- Nombre del equipo.
+- Grupo de trabajo o dominio.
+- Dirección y configuración de red.
+- Windows Update.
+- Administración remota.
+- Firewall.
+- Escritorio remoto.
+- Zona horaria.
+- Estado de activación.
+
+Además, la página del servidor local puede mostrar información sobre
+eventos, servicios, rendimiento y resultados del **Best Practices
+Analyzer (BPA)**. citeturn0search0
+
+📸 **CAPTURA 02 --- Panel de navegación y opción Servidor local**
+
+### Todos los servidores
+
+Esta vista permite trabajar con los servidores que forman parte del
+grupo de servidores administrados por Server Manager.
+
+En nuestra práctica inicial tendremos principalmente nuestro propio
+servidor. Más adelante, cuando trabajemos con una infraestructura con
+varios equipos, esta sección será especialmente útil.
+
+### Páginas de roles
+
+Cuando instalemos determinados **roles** y Server Manager los detecte,
+pueden aparecer nuevas páginas en el panel de navegación.
+
+Por ejemplo, después de instalar un rol de servidor, podremos encontrar
+una sección específica desde la que consultar su estado y acceder a
+tareas relacionadas con ese rol. citeturn0search0
+
+> **Todavía no vamos a instalar Active Directory.** Primero dejaremos
+> correctamente configurado el servidor.
+
+------------------------------------------------------------------------
+
+## 1.3. Menú Administrar
+
+El menú **Administrar** contiene acciones generales de administración.
+
+Entre las opciones más importantes encontraremos:
+
+- **Agregar roles y características:** permite instalar nuevos roles y
+  características en el servidor.
+- **Quitar roles y características:** permite eliminar roles o
+  características instalados.
+- **Agregar servidores:** permite incorporar otros servidores a la
+  consola de Server Manager.
+- **Crear grupo de servidores:** permite organizar servidores en grupos
+  personalizados.
+- **Propiedades del Administrador del servidor:** permite configurar
+  aspectos del funcionamiento de la propia consola.
+
+Para nuestra práctica, una de las opciones más importantes será
+**Agregar roles y características**, que utilizaremos más adelante para
+instalar los servicios que necesitemos. citeturn0search5
+
+📸 **CAPTURA 03 --- Menú Administrar desplegado**
+
+------------------------------------------------------------------------
+
+## 1.4. Menú Herramientas
+
+El menú **Herramientas** da acceso a numerosas herramientas
+administrativas de Windows Server.
+
+Algunas de las que utilizaremos durante el curso son:
+
+- **PowerShell**
+- **Visor de eventos**
+- **Servicios**
+- **Administración de equipos**
+- **Administración de discos**
+- **Firewall de Windows Defender con seguridad avanzada**
+- Herramientas relacionadas con los roles instalados.
+
+Server Manager utiliza este menú para proporcionar accesos a
+herramientas administrativas y complementos MMC disponibles en el
+sistema. citeturn0search0
+
+📸 **CAPTURA 04 --- Menú Herramientas desplegado**
+
+> **Idea importante:** cuando en una práctica te indiquemos
+> **Administrador del servidor → Herramientas → ...**, estamos utilizando
+> este menú para abrir una herramienta concreta de administración.
+
+------------------------------------------------------------------------
+
+## 1.5. Menú Ver
+
+El menú **Ver** permite modificar la forma en la que visualizamos la
+consola.
+
+Entre otras opciones permite controlar el zoom y actualizar la
+información mostrada. La tecla **F5** permite actualizar la vista. citeturn0search0turn0search9
+
+📸 **CAPTURA 05 --- Menú Ver desplegado**
+
+------------------------------------------------------------------------
+
+## 1.6. Menú Ayuda
+
+El menú **Ayuda** permite acceder a la ayuda y documentación relacionada
+con Server Manager.
+
+También podemos utilizar **F1** para abrir la ayuda de Server Manager.
+citeturn0search9
+
+📸 **CAPTURA 06 --- Menú Ayuda desplegado**
+
+------------------------------------------------------------------------
+
+## 1.7. ¿Qué vamos a utilizar de momento?
+
+Para esta primera configuración nos interesa especialmente conocer:
+
+```text
+ADMINISTRADOR DEL SERVIDOR
+        │
+        ├── Panel
+        │     └── Vista general del servidor
+        │
+        ├── Servidor local
+        │     └── Configuración básica
+        │
+        ├── Todos los servidores
+        │     └── Administración de varios servidores
+        │
+        ├── Administrar
+        │     └── Roles, características y configuración de Server Manager
+        │
+        └── Herramientas
+              └── PowerShell, eventos, discos, firewall, servicios...
+```
+
+La idea es que, antes de comenzar a modificar el servidor, seas capaz de
+responder:
+
+- ¿Dónde puedo comprobar el nombre del servidor?
+- ¿Dónde puedo revisar la configuración de red?
+- ¿Dónde puedo instalar un rol?
+- ¿Dónde puedo abrir PowerShell?
+- ¿Dónde puedo consultar los eventos?
+- ¿Dónde puedo administrar los discos?
+- ¿Dónde puedo abrir el firewall avanzado?
+
+📸 **CAPTURA 07 --- Vista general del Administrador del servidor**
+
+------------------------------------------------------------------------
+## 2. Datos iniciales del servidor
 
 Anota los datos que vas a utilizar en tu práctica.
 
@@ -25,47 +223,9 @@ Anota los datos que vas a utilizar en tu práctica.
 | Servidor DNS          |                                          |
 | Dominio               |            Se configurará posteriormente |
 
- 
-
-                   
+          
 
 📸 **CAPTURA 01 --- Datos iniciales del servidor**
-
-------------------------------------------------------------------------
-
-# 2. Administrador del servidor
-
-El **Administrador del servidor (Server Manager)** es la herramienta
-principal para realizar muchas tareas de administración de Windows
-Server. Permite consultar el estado del servidor, administrar roles y
-características y acceder a herramientas de configuración.
-
-### 2.1. Abrir el Administrador del servidor
-
-Normalmente se abre automáticamente después de iniciar sesión.
-
-También podemos abrirlo desde:
-
-**Inicio → Administrador del servidor**
-
-Otra posibilidad es ejecutar:
-
-``` text
-ServerManager.exe
-```
-
-📸 **CAPTURA 02 --- Administrador del servidor**
-
-### 2.2. Propiedades del Administrador del servidor
-
-Desde:
-
-**Administrar → Propiedades del Administrador del servidor**
-
-podemos configurar, entre otras cosas, si queremos que se abra
-automáticamente al iniciar sesión y el intervalo de actualización.
-
-📸 **CAPTURA 03 --- Propiedades del Administrador del servidor**
 
 ------------------------------------------------------------------------
 
@@ -206,14 +366,14 @@ funciones de dominio, es conveniente trabajar con una dirección IP
 estable.
 
 > **Importante:** utiliza los valores de red indicados para tu
-> laboratorio. Los siguientes son únicamente un ejemplo.
+> red. Los siguientes son únicamente un ejemplo.
 
   Parámetro          Ejemplo
   ------------------ ----------------------------------------
   IPv4               `192.168.100.10`
   Máscara            `255.255.255.0`
   Puerta de enlace   `192.168.100.1`
-  DNS preferido      Según la configuración del laboratorio
+  DNS preferido      Según la configuración de la red
 
 ### Pasos
 
@@ -221,7 +381,7 @@ estable.
 2.  Seleccionar **Protocolo de Internet versión 4 (TCP/IPv4)**.
 3.  Seleccionar **Usar la siguiente dirección IP**.
 4.  Introducir los valores correspondientes.
-5.  Configurar el DNS según el diseño del laboratorio.
+5.  Configurar el DNS según el diseño de la red.
 6.  Aceptar los cambios.
 
 📸 **CAPTURA 11 --- Propiedades del adaptador de red**
@@ -549,61 +709,7 @@ Desde ella podemos consultar:
 
 ------------------------------------------------------------------------
 
-# 19. Comprobación final
-
-Antes de continuar con la siguiente parte, comprueba:
-
--   [ ] El servidor tiene un nombre adecuado.
--   [ ] Se ha reiniciado después de cambiar el nombre.
--   [ ] La fecha y hora son correctas.
--   [ ] La zona horaria es correcta.
--   [ ] La configuración IPv4 es correcta.
--   [ ] La dirección IP es la prevista para la práctica.
--   [ ] La configuración DNS es la prevista.
--   [ ] El servidor tiene conectividad con la red.
--   [ ] El servidor puede comunicarse con el equipo cliente.
--   [ ] El firewall está activo.
--   [ ] Las reglas necesarias para las pruebas de conectividad están
-    configuradas.
--   [ ] Windows Update ha sido comprobado.
--   [ ] El estado de activación ha sido comprobado.
--   [ ] Se ha verificado el nombre con `hostname`.
--   [ ] Se ha comprobado la red con `ipconfig /all`.
--   [ ] Se ha comprobado la conectividad con `ping` o
-    `Test-NetConnection`.
--   [ ] Se ha comprobado el estado básico de los discos.
-
-📸 **CAPTURA 36 --- Estado final del servidor**
-
-------------------------------------------------------------------------
-
-# 20. Evidencias que debes entregar
-
-Conserva las capturas que demuestren las principales configuraciones
-realizadas:
-
-1.  Administrador del servidor.
-2.  Nombre del servidor.
-3.  Fecha y hora.
-4.  Configuración IPv4.
-5.  `ipconfig /all`.
-6.  Conectividad mediante `ping`.
-7.  Regla ICMP del firewall.
-8.  Windows Update.
-9.  Estado del firewall.
-10. `hostname`.
-11. SConfig.
-12. Herramientas administrativas.
-13. Visor de eventos.
-14. Administración de discos.
-15. Comprobaciones de disco.
-
-> Las capturas deben mostrar tanto la configuración realizada como,
-> cuando sea posible, el resultado de la comprobación.
-
-------------------------------------------------------------------------
-
-# 21. Resolución de problemas
+# 19. Resolución de problemas
 
 ## El servidor no responde al ping
 
@@ -672,6 +778,9 @@ Comprueba:
 Una vez terminada esta configuración inicial, el servidor estará
 preparado para continuar con las tareas de administración de red.
 
+A partir de aquí comenzará la configuración de Active Directory y del
+dominio.
+
 ``` text
 CONFIGURACIÓN INICIAL
         │
@@ -693,34 +802,3 @@ ACTIVE DIRECTORY
         ├── Equipos
         └── Directivas
 ```
-
-> **No realices todavía la instalación y configuración de Active
-> Directory. Ese contenido se trabajará en el siguiente apartado.**
-
-------------------------------------------------------------------------
-
-# 23. Resumen
-
-Al finalizar esta guía debes tener un **Windows Server 2025
-correctamente identificado, actualizado y conectado a la red**, con las
-principales herramientas de administración local conocidas.
-
-Debes ser capaz de:
-
--   Identificar el Administrador del servidor.
--   Configurar el nombre del equipo.
--   Configurar la fecha y hora.
--   Configurar IPv4.
--   Comprobar la conectividad.
--   Comprender el papel del firewall.
--   Utilizar `ping`.
--   Utilizar `ipconfig`.
--   Utilizar `Test-NetConnection`.
--   Utilizar SConfig.
--   Utilizar PowerShell.
--   Consultar eventos.
--   Administrar discos.
--   Realizar comprobaciones básicas del sistema.
-
-**A partir de aquí comenzará la configuración de Active Directory y del
-dominio.**
